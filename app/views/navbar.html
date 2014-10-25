@@ -1,0 +1,23 @@
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container" ng-controller="collapseController">
+    <a ng-click="tab.setTab('home')" href="#" class="navbar-brand">Recipes</a>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse navHeaderCollapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{ active:tab.isSet('home') }">
+          <a ng-click="tab.setTab('home')" href="#">Home</a>
+        </li>
+        <li ng-class="{ active:tab.isSet('recipes') }">
+          <a ng-click="tab.setTab('recipes')" href="#/recipes">Recepten</a>
+        </li>
+        <li ng-class="{ active:tab.isSet('addrecipe') }">
+          <a ng-click="tab.setTab('addrecipe')" href="#/addrecipe">Nieuw recept</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

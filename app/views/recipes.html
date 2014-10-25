@@ -1,0 +1,27 @@
+
+<div class="about" ng-init="getRecipes()">
+	<div class="panel panel-info" ng-repeat="recipe in recipes">
+		 <div class="panel-heading">
+    		<h3 class="panel-title">
+    			<div class="recipe-name">{{recipe.name}}<button class="pull-right deletebutton" ng-click="deleteRecipe(recipe._id)">Delete</button><span class="pull-right">{{recipe.category}}</span></div>
+    		</h3>
+    	</div>
+    	<div class="panel-body">
+    		<div class="row  col-md-6">
+	    		<div class="description">
+	    			{{recipe.description}}
+	    		</div>
+    		</div>
+			<div class="images" >
+				<div class="row  col-md-6" ng-if="recipe.images.length >= 1 ">
+					<img ng-src="images/bbq/{{recipe.images[0]}}">
+				</div>
+<!-- 				<div class="row  col-xs-6" ng-if="recipe.images.length = < 1">
+					<img ng-src="images/no-image.png">
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<br>
+</div>
+

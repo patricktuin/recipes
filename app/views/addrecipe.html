@@ -1,0 +1,32 @@
+
+	<!--  Review Form -->
+	<form name="addrecipeForm" ng-controller="RecipesCtrl" ng-submit="addRecipe()">
+
+	  <!--  Live Preview -->
+<!-- 	  <blockquote >
+	    <strong>{{RecipesCtrl.review.stars}} Stars</strong>
+	    {{RecipesCtrl.review.body}}
+	    <cite class="clearfix">—{{RecipesCtrl.review.author}}</cite>
+	  </blockquote> -->
+
+	  <!--  Review Form -->
+	  <h4>Voeg nieuw recept toe</h4>
+	  <form role="form" novalidate>
+	  	<div class="form-group">
+	  		<input ng-model="formData.name" type="text" class="form-control" placeholder="Naam van het recept" required/>
+	  	</div>
+	  	<div class="form-group">
+		    <select ng-model="formData.category" class="form-control" ng-options="stars for stars in ['BBQ','Italiaans','Hollands']" title="Category" required>
+		      <option value>Kies categorie</option>
+		    </select>
+	    </div>
+		<div class="form-group">
+		<textarea ng-model="formData.description" class="form-control" placeholder="Beschrijving van het recept" title="Description"></textarea>
+		</div>
+<!-- 	  <div class="form-group">
+	    <input ng-model="RecipesCtrl.author" type="email" class="form-control" placeholder="gordonramsey@gmail.com" title="Email" />
+	  </div> -->
+		<div class="form-group">
+		<input type="submit" class="btn btn-primary pull-right" value="Voeg toe" />
+		</div>
+	</form>
