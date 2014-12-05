@@ -31,6 +31,10 @@ var app = angular.module('recipesApp', [
         templateUrl: 'views/addrecipe.html',
         controller: 'RecipesCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        //controller: 'RecipesCtrl'
+      })
       .when('/info', {
         templateUrl: 'views/info.html',
         // controller: 'RecipesCtrl'
@@ -49,6 +53,8 @@ var app = angular.module('recipesApp', [
           }
     });
   });
+
+
 
   app.controller('TabController', function() {
     this.tab = 'home';

@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container" ng-controller="collapseController">
     <a ng-click="tab.setTab('home')" href="#" class="navbar-brand">Recipes</a>
     <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -16,6 +16,9 @@
         </li>
         <li ng-class="{ active:tab.isSet('addrecipe') }">
           <a ng-click="tab.setTab('addrecipe')" href="#/addrecipe">Nieuw recept</a>
+        </li>
+        <li ng-class="{ active:tab.isSet('login') }">
+          <a ng-click="tab.setTab('login')" href="#/login">Login</a>
         </li>
       </ul>
     </div>

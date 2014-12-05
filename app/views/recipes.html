@@ -6,6 +6,8 @@
     			<div class="recipe-name">{{recipe.name}}<button class="pull-right deletebutton" ng-click="deleteRecipe(recipe._id)">Delete</button><span class="pull-right">{{recipe.category}}</span></div>
     		</h3>
     	</div>
+
+
     	<div class="panel-body">
     		<div class="row  col-md-6">
 	    		<div class="description">
@@ -23,5 +25,8 @@
 		</div>
 	</div>
 	<br>
+  <div class="error" ng-show="error">
+    {{error}}
+  </div>
 </div>
 
