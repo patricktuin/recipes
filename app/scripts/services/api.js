@@ -38,6 +38,7 @@
 
     return {
       getRecipes: getRecipes,
+      getRecipe: getRecipe,
       addRecipe: addRecipe,
       deleteRecipe: deleteRecipe
     };

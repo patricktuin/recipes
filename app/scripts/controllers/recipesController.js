@@ -15,16 +15,20 @@
         $scope.recipes = data;
       };
 
+      var onRecipeComplete = function (data) {
+        $scope.recipe = data;
+      };
+
       var onError = function () {
         $scope.error = 'Could not fetch the data. Maybe API problem?';
       };
 
-      $scope.getRecipes = function () {
-        api.getRecipes().then(onRecipesComplete, onError);
+      $scope.getRecipes = function (id) {
+        api.getRecipes(id).then(onRecipesComplete, onError);
       };
 
       $scope.getRecipe = function (id) {
-        api.getRecipe(id).then(onRecipesComplete, onError);
+        api.getRecipe(id).then(onRecipeComplete, onError);
       };
 
       $scope.addRecipe = function(){

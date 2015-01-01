@@ -1,7 +1,6 @@
+<h4>Voeg nieuw recept toe</h4>
 <form name="addrecipeForm" ng-controller="RecipesCtrl" ng-submit="addRecipe()">
 
-
-  <h4>Voeg nieuw recept toe</h4>
 
   <form role="form" novalidate>
     <div class="form-group">
@@ -19,10 +18,10 @@
       </select>
     </div>
     <div class="form-group">
-      <input ng-model="formData.ingredients" type="text" class="form-control" placeholder="ingredienten" />
+      <input ng-model="formData.ingredients" type="text" class="form-control" placeholder="ingredienten"/>
     </div>
     <div class="form-group">
-      <input ng-model="formData.image" type="text" class="form-control" placeholder="image URL" />
+      <input ng-model="formData.image" type="text" class="form-control" placeholder="image URL"/>
     </div>
 
 
@@ -30,3 +29,4 @@
       <input type="submit" class="btn btn-primary pull-right" value="Voeg toe"/>
     </div>
   </form>
+</form>
