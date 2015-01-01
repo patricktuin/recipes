@@ -1,33 +1,24 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-@import "recipehome.scss";
 // endbower
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+@import "colors";
+@import "navbar";
+@import "home";
+
+.container {
+  max-width: 1024px;
 }
 
-/* Space out content a bit */
-body {
-//  padding-top: 20px;
-//  padding-bottom: 20px;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 800px;
+.panel {
+  border-color: $color4;
+  .panel-heading {
+    background-color: $color1;
+    color:$color2;
   }
-}.navbar{
-  border: none;
- }
-
-
+  .panel-body{
+    background-color:$color2;
+    color: $color1;
+  }
+}

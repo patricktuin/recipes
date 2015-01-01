@@ -21,7 +21,7 @@ var app = angular.module('recipesApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        // controller: 'TabController'
+        controller: 'RecipesCtrl'
       })
       .when('/recipes', {
         templateUrl: 'views/recipes.html',
@@ -32,11 +32,11 @@ var app = angular.module('recipesApp', [
         controller: 'RecipesCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: 'views/login.html'
         //controller: 'RecipesCtrl'
       })
       .when('/info', {
-        templateUrl: 'views/info.html',
+        templateUrl: 'views/info.html'
         // controller: 'RecipesCtrl'
       })
       .otherwise({

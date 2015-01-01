@@ -15,20 +15,12 @@
   <!-- endbuild -->
 </head>
 <body ng-app="recipesApp">
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
-<![endif]-->
 
 <div class="container" ng-controller="TabController">
 
   <div class="navbar" id="navbar" ng-include src="'views/navbar.html'"></div>
 
   <div ng-view=""></div>
-
-  <!--<div class="footer">-->
-    <!--&lt;!&ndash;<p>Patrick <span class="glyphicon glyphicon-heart"></span> food</p>&ndash;&gt;-->
-  <!--</div>-->
 
 </div>
 
@@ -85,8 +77,8 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers/recipes.js"></script>
-<script src="scripts/services/recipes.js"></script>
+<script src="scripts/controllers/recipesController.js"></script>
+<script src="scripts/services/api.js"></script>
 
 <!-- endbuild -->
 </body>

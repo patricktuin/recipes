@@ -1,30 +1,37 @@
-<div class="page">
+<div class="recipes" ng-init="getRecipes()">
   <div class="row">
-    <div class="top">
-      <div class="header">
-        <h1>Recept van de week</h1>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <img ng-src="http://www.healthylives.nl/wp-content/uploads//assets/images/bbq.jpg" class="img-responsive">
-
-        <div class="visible-xs overlay">
-          Spareribs
+    <div class="col-xs-12">
+      <div class="panel panel-info" ng-repeat="recipe in recipes">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <div class="recipe-name">{{recipe.name}}
+              <button class="btn btn-warning pull-right" ng-click="deleteRecipe(recipe._id)">Delete</button>
+              <span class="pull-right">{{recipe.category}}</span></div>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-6">
+            <img class="img-responsive" ng-src="{{recipe.image}}">
+          </div>
+          <div class="col-md-6">
+            <div class="description">
+              {{recipe.description}}
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="hidden-xs col-md-8">
-        <h1>BBQ, juist nu!</h1>
-
-        <p>Het wordt weer lekker koud buiten. Veel mensen bergen de BBQ op, maar juist met het koude weer is het extra
-          lekker om te BBQ'en.</p>
-      </div>
     </div>
+    <br>
+
+    <div class="error" ng-show="error">
+      {{error}}
+    </div>
+
   </div>
 
-  <div class="row">
-    <div class="content">
-      <h1>content</h1>
-    </div>
-  </div>
 </div>
+</div>
+
+
+
 
