@@ -23,6 +23,10 @@
         api.getRecipes().then(onRecipesComplete, onError);
       };
 
+      $scope.getRecipe = function (id) {
+        api.getRecipe(id).then(onRecipesComplete, onError);
+      };
+
       $scope.addRecipe = function(){
         api.addRecipe($scope.formData);
         $scope.formData = {};

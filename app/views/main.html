@@ -4,9 +4,10 @@
       <div class="panel panel-info" ng-repeat="recipe in recipes">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <div class="recipe-name">{{recipe.name}}
+            <div class="recipe-name"><a href="#/recipedetails">{{recipe.name}}</a>
               <button class="btn btn-warning pull-right" ng-click="deleteRecipe(recipe._id)">Delete</button>
-              <span class="pull-right">{{recipe.category}}</span></div>
+              <span class="pull-right">{{recipe.category}}</span>
+            </div>
           </h3>
         </div>
         <div class="panel-body">
@@ -16,6 +17,7 @@
           <div class="col-md-6">
             <div class="description">
               {{recipe.description}}
+              <h2>{{recipe._id}}</h2>
             </div>
           </div>
         </div>

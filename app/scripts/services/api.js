@@ -2,14 +2,19 @@
 
 (function () {
 
-
-
   var api = function ($http) {
 
     var APIurl = 'http://localhost:3000/';
 
     var getRecipes = function () {
       return $http.get(APIurl)
+        .then(function (response) {
+          return response.data;
+        });
+    };
+
+    var getRecipe = function (id) {
+      return $http.get(APIurl + id)
         .then(function (response) {
           return response.data;
         });
