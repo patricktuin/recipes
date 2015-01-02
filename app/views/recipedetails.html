@@ -1,34 +1,70 @@
 <div class="recipes" ng-controller="RecipesCtrl" ng-init="getRecipe(recipe._id)">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <div class="recipe-name">{{recipe.name}}
-              <button class="btn btn-warning pull-right" ng-click="deleteRecipe(recipe._id)">Delete</button>
-              <span class="pull-right">{{recipe.category}}</span>
-            </div>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="col-md-6">
-            <img class="img-responsive" ng-src="{{recipe.image}}">
-          </div>
-          <div class="col-md-6">
-            <div ng-bind-html="recipe.description" class="description">
+  <!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+  <!--<div class="panel panel-info">-->
+  <!--<div class="panel-heading">-->
+  <!--<h3 class="panel-title">-->
+  <!--<div class="recipe-name">{{recipe.name}}-->
+  <!--<button class="btn btn-warning pull-right" ng-click="deleteRecipe(recipe._id)">Delete</button>-->
+  <!--<span class="pull-right">{{recipe.category}}</span>-->
+  <!--</div>-->
+  <!--</h3>-->
+  <!--</div>-->
+  <!--<div class="panel-body">-->
+  <!--<div class="col-md-6">-->
+  <!--<img class="img-responsive" ng-src="{{recipe.image}}">-->
+  <!--</div>-->
+  <!--<div class="col-md-6">-->
+  <!--<div text-angular="text-angular" class="form-group" ng-model="recipe.description"-->
+  <!--placeholder="Korte beschrijving van het recept"-->
+  <!--title="Description">-->
 
-              <h2>{{recipe._id}}</h2>
-            </div>
-          </div>
-        </div>
+  <!--</div>-->
+  <!--<div text-angular ng-bind-html="recipe.description" class="description">-->
+  <!--<h2>{{recipe._id}}</h2>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<br>-->
+
+  <!--<div class="error" ng-show="error">-->
+  <!--{{error}}-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <h4>{{recipe.name}}</h4>
+
+  <form name="updaterecipeForm" ng-controller="RecipesCtrl" ng-submit="updateRecipe(recipe._id)">
+    <form role="form" novalidate>
+      <div class="form-group">
+        <input ng-model="recipe.name" type="text" class="form-control" placeholder="Naam van het recept" required/>
       </div>
-    </div>
-  </div>
-  <br>
 
-  <div class="error" ng-show="error">
-    {{error}}
-  </div>
+        <div text-angular="text-angular" class="form-group" ng-model="recipe.
+        "
+             placeholder="Korte beschrijving van het recept"
+             title="Description">
+        </div>
 
+      <div class="form-group">
+        <label>Categorie</label>
+        <select ng-model="recipe.category" class="form-control"
+                ng-options="stars for stars in ['BBQ','Italiaans','Hollands']" title="Category" required>
+          <option value>Kies categorie</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input ng-model="recipe.ingredients" type="text" class="form-control" placeholder="ingredienten"/>
+      </div>
+      <div class="form-group">
+        <input ng-model="recipe.image" type="text" class="form-control" placeholder="image URL"/>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary pull-left" value="Voeg toe"/>
+      </div>
+    </form>
+  </form>
 </div>
-

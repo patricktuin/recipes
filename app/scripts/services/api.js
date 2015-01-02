@@ -28,6 +28,15 @@
         });
     };
 
+    var updateRecipe = function (id, recipe) {
+      console.log('Update controller' + id + recipe);
+      $http.put(APIurl + id, recipe)
+        .then(function (response) {
+          return response.data;
+        });
+    };
+
+
     var deleteRecipe = function (id) {
       console.log('delete controller ' + id);
       $http.delete(APIurl + id)
@@ -40,7 +49,8 @@
       getRecipes: getRecipes,
       getRecipe: getRecipe,
       addRecipe: addRecipe,
-      deleteRecipe: deleteRecipe
+      deleteRecipe: deleteRecipe,
+      updateRecipe: updateRecipe
     };
   };
 

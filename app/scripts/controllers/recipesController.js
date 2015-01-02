@@ -32,8 +32,13 @@
       };
 
       $scope.addRecipe = function(){
-        api.addRecipe($scope.formData);
-        $scope.formData = {};
+        api.addRecipe($scope.recipe);
+        $scope.recipe = {};
+      };
+
+      $scope.updateRecipe = function(id){
+        console.log('contreoller update ' + id);
+        api.updateRecipe(id, $scope.recipe);
       };
 
       $scope.deleteRecipe = function (id) {
