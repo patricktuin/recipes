@@ -9,13 +9,14 @@
  * Main module of the application.
  */
 var app = angular.module('recipesApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+  'ngAnimate',
+  'ngCookies',
+  'ngResource',
+  'ngRoute',
+  'ngSanitize',
+  'ngTouch',
+  'textAngular'
+])
 
   .config(function ($routeProvider) {
     $routeProvider
@@ -35,36 +36,35 @@ var app = angular.module('recipesApp', [
         templateUrl: 'views/login.html'
         //controller: 'RecipesCtrl'
       })
-      .when('/recipedetails', {
-        templateUrl: 'views/recipedetails.html'
-        // controller: 'RecipesCtrl'
+      .when('/recipedetails/:id', {
+        templateUrl: 'views/recipedetails.html',
+        controller: 'RecipesCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
 
-  app.controller('collapseController', function($rootScope){
-    $rootScope.$on('$routeChangeSuccess', function() {
-          var toggle = angular.element('.navbar-toggle');
-          if (!toggle.hasClass('collapsed')) {
-              angular.element('.navbar-collapse').removeClass('in').addClass('collapsed');
+app.controller('collapseController', function ($rootScope) {
+  $rootScope.$on('$routeChangeSuccess', function () {
+    var toggle = angular.element('.navbar-toggle');
+    if (!toggle.hasClass('collapsed')) {
+      angular.element('.navbar-collapse').removeClass('in').addClass('collapsed');
 
-          }
-    });
+    }
   });
+});
 
 
+app.controller('TabController', function () {
+  this.tab = 'home';
 
-  app.controller('TabController', function() {
-    this.tab = 'home';
+  this.setTab = function (setTab) {
+    this.tab = setTab;
+  };
 
-    this.setTab = function(setTab) {
-      this.tab = setTab;
-    };
-
-    this.isSet = function(checkTab) {
-      return this.tab === checkTab;
-    };
-  });
+  this.isSet = function (checkTab) {
+    return this.tab === checkTab;
+  };
+});
 

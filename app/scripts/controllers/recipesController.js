@@ -9,7 +9,7 @@
  */
 (function () {
   angular.module('recipesApp')
-    .controller('RecipesCtrl', function ($scope, api) {
+    .controller('RecipesCtrl', function ($scope, api, $routeParams) {
 
       var onRecipesComplete = function (data) {
         $scope.recipes = data;
@@ -23,12 +23,12 @@
         $scope.error = 'Could not fetch the data. Maybe API problem?';
       };
 
-      $scope.getRecipes = function (id) {
-        api.getRecipes(id).then(onRecipesComplete, onError);
+      $scope.getRecipes = function () {
+        api.getRecipes().then(onRecipesComplete, onError);
       };
 
-      $scope.getRecipe = function (id) {
-        api.getRecipe(id).then(onRecipeComplete, onError);
+      $scope.getRecipe = function () {
+        api.getRecipe($routeParams.id).then(onRecipeComplete, onError);
       };
 
       $scope.addRecipe = function(){
