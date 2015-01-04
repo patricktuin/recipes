@@ -18,10 +18,11 @@
 </head>
 <body ng-app="recipesApp">
 
-<div class="container" ng-controller="TabController">
+<div ng-controller="TabController">
 
   <div class="navbar" id="navbar" ng-include src="'views/navbar.html'"></div>
-
+</div>
+<div class="container">
   <div ng-view=""></div>
 
 </div>

@@ -36,8 +36,12 @@ var app = angular.module('recipesApp', [
         templateUrl: 'views/login.html'
         //controller: 'RecipesCtrl'
       })
-      .when('/recipedetails/:id', {
+      .when('/recipes/:id', {
         templateUrl: 'views/recipedetails.html',
+        controller: 'RecipesCtrl'
+      })
+      .when('/recipes/update/:id', {
+        templateUrl: 'views/updaterecipe.html',
         controller: 'RecipesCtrl'
       })
       .otherwise({

@@ -9,7 +9,7 @@
  */
 (function () {
   angular.module('recipesApp')
-    .controller('RecipesCtrl', function ($scope, api, $routeParams) {
+    .controller('RecipesCtrl', function ($scope, api, $routeParams, $location) {
 
       var onRecipesComplete = function (data) {
         $scope.recipes = data;
@@ -29,21 +29,73 @@
 
       $scope.getRecipe = function () {
         api.getRecipe($routeParams.id).then(onRecipeComplete, onError);
+
       };
 
-      $scope.addRecipe = function(){
+      var splitIngredients = function (ingredients) {
+        console.log(typeof(ingredients) + ' ' + ingredients);
+        ingredients = ingredients.split(",");
+        console.log(typeof(ingredients) + ' yep ' + ingredients);
+        return ingredients;
+      };
+
+      //$scope.clear = function(searchText){
+      //  console.log(searchText);
+      //  $scope.searchText = '';
+      //};
+
+
+
+
+
+
+
+       $scope.categories = ['bbq', 'italiaans', 'hollands'];
+      $scope.selection = [];
+
+      $scope.toggleSelection = function toggleSelection(category) {
+        var categories = $scope.selection.indexOf(category);
+
+        // is currently selected
+        if (categories > -1) {
+          $scope.selection.splice(categories, 1);
+        }
+
+        // is newly selected
+        else {
+          $scope.selection.push(category);
+        }
+      };
+
+
+
+
+
+
+
+      $scope.addRecipe = function (categories) {
+        $scope.recipe.ingredients = splitIngredients($scope.recipe.ingredients);
+        $scope.recipe.category = categories;
         api.addRecipe($scope.recipe);
-        $scope.recipe = {};
+        console.log($scope.recipe);
+        //$scope.recipe = {};
+        //$location.path('/');
       };
 
-      $scope.updateRecipe = function(id){
-        console.log('contreoller update ' + id);
+      $scope.updateView = function (id) {
+        $location.path('/recipes/update/' + id)
+      };
+
+      $scope.updateRecipe = function (id, categories) {
+        $scope.recipe.ingredients = splitIngredients($scope.recipe.ingredients);
+        $scope.recipe.category = categories;
         api.updateRecipe(id, $scope.recipe);
       };
 
       $scope.deleteRecipe = function (id) {
         api.deleteRecipe(id);
         $scope.recipes.splice(id, 1);
+        $location.path('/');
       };
 
 

@@ -11,6 +11,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   max-width: 1024px;
 }
 
+h1, h2, h3, h4, h5, p {
+  color: $color1;
+}
+
 .panel {
   border-color: $color4;
   .panel-heading {
@@ -23,14 +27,28 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   }
 }
 
-.text-angular{
-  background-color: red;
-}
-
-.ta-editor{
-  border: 1px solid blue;
-}
 
 .ta-toolbar{
-  display: none;
+//  display: none;
+  width:100%;
+}
+
+
+.ta-editor {
+  height: 100px !important;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 20px 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.panel-body{
+  min-height:200px;
+}
+
+.search{
+  margin-bottom: 20px;
 }

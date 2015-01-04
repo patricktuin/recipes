@@ -1,0 +1,57 @@
+<div class="recipes" ng-init="getRecipe(recipe._id)">
+  <div class="page-header">
+    <h1>{{recipe.name}}</h1>
+  </div>
+
+  <form name="updaterecipeForm" ng-submit="updateRecipe(recipe._id, categories)">
+    <form role="form" novalidate>
+      <!--<div class="form-group">-->
+      <!--<input ng-model="recipe.name" type="text" class="form-control" placeholder="Naam van het recept" required/>-->
+      <!--</div>-->
+      <div class="form-group">
+        <div class=beschrijving">
+          <h5>Beschrijving</h5>
+
+          <div text-angular
+               ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"
+               ng-model="recipe.description" placeholder="Bereiding van het gerecht" title="Description">
+          </div>
+        </div>
+      </div>
+
+      <div class="bereiding">
+        <h5>Bereiding</h5>
+
+        <div text-angular
+             ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"
+             ng-model="recipe.preparation" placeholder="Bereiding van het gerecht" title="Description">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label ng-repeat="category in categories">
+          <input
+            type="checkbox"
+            value="{{category}}"
+            ng-checked="selection.indexOf(category) > -1"
+            ng-click="toggleSelection(category)"
+            > {{category}}
+        </label>
+      </div>
+
+      <div class="form-group">
+        <h4>Ingredienten</h4>
+        <input ng-model="recipe.ingredients" type="text" class="form-control" placeholder="ingredienten"/>
+      </div>
+
+      <div class="form-group">
+        <h4>Image URL</h4>
+        <input ng-model="recipe.image" type="text" class="form-control" placeholder="image URL"/>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary pull-left" value="Update"/>
+      </div>
+    </form>
+  </form>
+</div>

@@ -32,6 +32,7 @@
       console.log('Update controller' + id + recipe);
       $http.put(APIurl + id, recipe)
         .then(function (response) {
+          console.log('api.js '+ response.data);
           return response.data;
         });
     };
