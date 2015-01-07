@@ -4,8 +4,8 @@
 
   var api = function ($http) {
 
-    var APIurl = 'http://localhost:3000/';
-
+    //var APIurl = 'http://localhost:3000/';
+    var APIurl = 'http://www.redthings.nl:3000/';
     var getRecipes = function () {
       return $http.get(APIurl)
         .then(function (response) {
@@ -21,28 +21,33 @@
     };
 
     var addRecipe = function (recipe) {
-      console.log('Post controller' + recipe);
-      $http.post(APIurl, recipe)
+      return $http.post(APIurl, recipe)
         .then(function (response) {
-          return response.data;
+          return response;
         });
     };
 
     var updateRecipe = function (id, recipe) {
-      console.log('Update controller' + id + recipe);
-      $http.put(APIurl + id, recipe)
-        .then(function (response) {
-          console.log('api.js '+ response.data);
-          return response.data;
+      return $http.put(APIurl + id, recipe)
+        .success(function (response) {
+          console.log('api.js success ' + response.success);
+          return response.success;
+        })
+        .error(function (response) {
+          console.log('api js error' + response.success);
+          return response.success;
         });
     };
 
-
     var deleteRecipe = function (id) {
-      console.log('delete controller ' + id);
-      $http.delete(APIurl + id)
-        .then(function (response) {
-          return response.data;
+      return $http.delete(APIurl + id)
+        .success(function (response) {
+          console.log('api.js delete success ' + response);
+          return response.success;
+        })
+        .error(function (response) {
+          console.log('api js delete error' + response);
+          return response.success;
         });
     };
 

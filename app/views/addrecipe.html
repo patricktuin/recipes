@@ -1,18 +1,36 @@
-<h4>Voeg nieuw recept toe</h4>
+<div ng-include="'/views/partials/errors.html'"></div>
+<div class="page-header">
+  <h1>Voeg een nieuw recept toe</h1>
+</div>
 <form name="addrecipeForm" ng-submit="addRecipe(selection)">
   <form role="form" novalidate>
     <div class="form-group">
     <input ng-model="recipe.name" type="text" class="form-control" placeholder="Naam van het recept" required/>
     </div>
 
-    <div class="form-group col-sm-6">
-      <h4>Korte beschrijving</h4>
-      <div text-angular ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"
-           ng-model="recipe.description" placeholder="Korte beschrijving van het recept"
-           title="Description">
+    <div class="form-group">
+      <div class="row">
+
+        <div class="col-sm-6">
+          <h5>Beschrijving</h5>
+
+          <div text-angular
+               ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"
+               ng-model="recipe.description" placeholder="Bereiding van het gerecht" title="Description">
+          </div>
+        </div>
+
+
+        <div class="col-sm-6">
+          <h5>Bereiding</h5>
+
+          <div text-angular
+               ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"
+               ng-model="recipe.preparation" placeholder="Bereiding van het gerecht" title="Description">
+          </div>
+        </div>
       </div>
     </div>
-
     <!--<div class="form-group col-sm-6">-->
       <!--<h4>Ingredienten</h4>-->
       <!--<div text-angular ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"-->
@@ -21,17 +39,17 @@
       <!--</div>-->
     <!--</div>-->
 
-<div class="form-group">
-    <label ng-repeat="category in categories">
-      <input
-        type="checkbox"
-        value="{{category}}"
-        ng-checked="selection.indexOf(category) > -1"
-        ng-click="toggleSelection(category)"
-        > {{category}}
-    </label>
-</div>
-{{selection}}
+    <div class="form-group">
+      <label ng-repeat="category in categories" class="checkbox-inline">
+        <input
+          type="checkbox"
+          value="{{category}}"
+          ng-checked="selection.indexOf(category) > -1"
+          ng-click="toggleSelection(category)"
+          > {{category}}
+      </label>
+      {{selection}}
+    </div>
     <!--<div class="form-group">-->
       <!--<label>Categorie</label>-->
       <!--<select ng-model="recipe.category" class="form-control"-->
@@ -40,21 +58,15 @@
       <!--</select>-->
     <!--</div>-->
 
-    <!--<div class="form-group col-sm-6">-->
-      <!--<h4>Bereiding</h4>-->
-      <!--<div text-angular ta-toolbar="[['h1','h2','h3','h4', 'p'],['bold','italics'],['ul','ol'], ['justifyLeft', 'justifyCenter', 'justifyRight'], ['indent','outdent'], ['clear']]"-->
-           <!--ng-model="recipe.preparation" placeholder="Bereiding van het gerecht"-->
-           <!--title="Description">-->
-      <!--</div>-->
-    <!--</div>-->
+
 
     <div class="form-group">
       <input ng-model="recipe.ingredients" type="text" class="form-control" placeholder="ingredienten"/>
     </div>
 
-    <!--<div class="form-group">-->
-      <!--<input ng-model="recipe.image" type="text" class="form-control" placeholder="image URL"/>-->
-    <!--</div>-->
+    <div class="form-group">
+      <input ng-model="recipe.image" type="text" class="form-control" placeholder="image URL"/>
+    </div>
 
     <div class="form-group">
       <input type="submit" class="btn btn-primary pull-left" value="Voeg toe"/>

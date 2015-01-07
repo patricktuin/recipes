@@ -21,7 +21,7 @@ var app = angular.module('recipesApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/recipes.html',
         controller: 'RecipesCtrl'
       })
       .when('/recipes', {

@@ -1,11 +1,12 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap.scss";
 // endbower
 
 @import "colors";
 @import "navbar";
 @import "home";
+@import "recipes";
 
 .container {
   max-width: 1024px;
@@ -46,7 +47,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 .panel-body{
-  min-height:200px;
+  min-height:190px;
 }
 
 .search{
