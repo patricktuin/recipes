@@ -3,6 +3,9 @@
 $grid-gutter-width: 20px;
 $panel-body-padding: 10px;
 $panel-default-heading-bg: $color3;
+$panel-border-radius: none;
+$panel-default-border: $color3;
+$panel-default-text: $color2;
 
 @import "bootstrap/mixins";
 

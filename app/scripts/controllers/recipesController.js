@@ -14,13 +14,11 @@
 
       $scope.$on('ngRepeatFinished', function () {
         $('.panel').on('mouseenter', function () {
-          $(this).addClass('test');
-          console.log(this);
+          $(this).addClass('panel-hover');
         });
         $('.panel.panel-default').on('mouseleave', function () {
-          $(this).removeClass('test');
-        })
-        console.log('view loaded - forms: ' + $('form').length);    // simple test to see if we can use jQuery on DOM = yes :)
+          $(this).removeClass('panel-hover');
+        });
       });
 
 
@@ -147,22 +145,6 @@
         $scope.recipes.searchText = '';
       };
 
-
-    })
-
-    .directive('onFinishRender', function ($timeout) {
-      return {
-        restrict: 'A',
-        link: function (scope, element, attr) {
-          if (scope.$last === true) {
-            $timeout(function () {
-              scope.$emit('ngRepeatFinished');
-              console.log('finished');
-            });
-          }
-        }
-      }
-
-
     });
+
 })();

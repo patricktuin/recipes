@@ -63,11 +63,14 @@ app.controller('collapseController', function ($rootScope) {
 app.controller('TabController', function () {
   this.tab = 'home';
 
+
   this.setTab = function (setTab) {
     this.tab = setTab;
+
   };
 
   this.isSet = function (checkTab) {
+
     return this.tab === checkTab;
   };
 });

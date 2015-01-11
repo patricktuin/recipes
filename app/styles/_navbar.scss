@@ -1,8 +1,55 @@
 .navbar {
   background-color: $color3;
-  a  {
+  border: none !important;
+  a {
     color: $color2 !important;
     font-size: 20px;
-    font-style: bold;
+
   }
 }
+
+.navbar-collapse {
+  // margin-top: 40px;
+  border: none;
+}
+
+.navbar-toggle {
+  background-color: $color3 !important;
+  border: none !important;
+
+  .icon-bar {
+    background-color: $color4 !important;
+  }
+}
+
+.navbar-default {
+  background-color: $color4 !important;
+  opacity: 1;
+  border: none !important;
+  font-family: bitter;
+  a {
+    color: $color4 !important;
+  }
+  a:hover {
+    text-shadow: $color3 !important;
+  }
+}
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover,
+.dropdown-toggle.active {
+  background-color: $color4;
+  color: $color3 !important;
+}
+
+.dropdown-menu {
+  background-color: $color3 !important;
+  a:hover {
+    color: $color3 !important;
+    background-color: $color5 !important;
+  }
+}
+
