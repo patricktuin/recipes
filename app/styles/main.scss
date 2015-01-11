@@ -1,9 +1,7 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-@import "bootstrap.scss";
-// endbower
 
 @import "colors";
+@import "bootstrap.scss";
 @import "navbar";
 @import "home";
 @import "recipes";
@@ -12,21 +10,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   max-width: 1024px;
 }
 
-h1, h2, h3, h4, h5, p {
-  color: $color1;
-}
+//h1, h2, h3, h4, h5, p {
+//  color: $color1;
+//}
 
-.panel {
-  border-color: $color4;
-  .panel-heading {
-    background-color: $color1;
-    color:$color2;
-  }
-  .panel-body{
-    background-color:$color2;
-    color: $color5;
-  }
-}
 
 
 .ta-toolbar{
@@ -44,10 +31,6 @@ h1, h2, h3, h4, h5, p {
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-.panel-body{
-  min-height:190px;
 }
 
 .search{

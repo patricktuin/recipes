@@ -9,7 +9,20 @@
  */
 (function () {
   angular.module('recipesApp')
+
     .controller('RecipesCtrl', function ($scope, api, $routeParams, $location) {
+
+      $scope.$on('ngRepeatFinished', function () {
+        $('.panel').on('mouseenter', function () {
+          $(this).addClass('test');
+          console.log(this);
+        });
+        $('.panel.panel-default').on('mouseleave', function () {
+          $(this).removeClass('test');
+        })
+        console.log('view loaded - forms: ' + $('form').length);    // simple test to see if we can use jQuery on DOM = yes :)
+      });
+
 
       $scope.categories = ['BBQ', 'Italiaans', 'Hollands'];
 
@@ -19,6 +32,7 @@
 
       var onRecipesComplete = function (data) {
         $scope.recipes = data;
+        $scope.recipes.searchCategory = {};
         $scope.success = true;
         $scope.count = data.length;
       };
@@ -29,7 +43,7 @@
 
       };
 
-      var onAddRecipe = function(response){
+      var onAddRecipe = function (response) {
         if (response.status === 200) {
           $scope.status = true;
           $scope.statusMessage = 'Recept toegevoegd';
@@ -120,10 +134,35 @@
         api.deleteRecipe(id).then(onDeleteRecipe);
       };
 
+      $scope.gotoDetailView = function (id) {
+        $location.path('/recipes/' + id);
+      };
+
       $scope.updateView = function (id) {
         $location.path('/recipes/update/' + id);
       };
 
-    });
+      $scope.clearFilters = function () {
+        $scope.recipes.searchCategory = '';
+        $scope.recipes.searchText = '';
+      };
 
+
+    })
+
+    .directive('onFinishRender', function ($timeout) {
+      return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+          if (scope.$last === true) {
+            $timeout(function () {
+              scope.$emit('ngRepeatFinished');
+              console.log('finished');
+            });
+          }
+        }
+      }
+
+
+    });
 })();

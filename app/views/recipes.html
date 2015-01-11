@@ -1,49 +1,76 @@
 <div class="recipes" ng-init="getRecipes()">
-  <div class="search">
-    <div class="row">
-      <div class="col-sm-12">
-        <!--<div class="input-group">-->
-        <input type="text" ng-model="searchText" placeholder="Zoek naar...">
-        <!--<span class="input-group-btn">-->
-        <!--<button class="btn btn-primary" type="button">Zoek</button>-->
-        <!--</span>-->
-        <!--</div>-->
+  <div class="row">
+    <div class="col-xs-12 top">
+      <img class="img-responsive" ng-src="http://ribalizer.com/wp-content/uploads/2014/01/Rib-Banner.jpg">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-default search">
+        <div class="panel-body">
+          <h4>Zoek een recept: </h4><input type="text" ng-model="recipes.searchText" placeholder="Zoek naar...">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-default test">
+        <div class="panel-heading">
+          <h3 class="panel-title">Zoek recepten</h3>
+        </div>
+        <div class="panel-body">
+          <p>Panel content</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4">
+      <div class="panel panel-default search">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+          <form role="form">
+
+
+            <div class="checkbox" ng-repeat="category in categories">
+              <label><input type="checkbox" ng-model="recipes.searchCategory" ng-true-value="{{category}}"
+                            ng-false-value="">{{category}}</label>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="checkbox-inline" ng-repeat="category in categories">
-    <input type="checkbox" ng-model="searchText" ng-checked-value="BBQ">{{category}}
-  </div>
-{{searchText}}
-
-  <button class="btn btn-primary" ng-click="clear(searchText)">Clear</button>
-  deleted: {{deleted}}
   <div class="row">
-    <div ng-repeat="recipe in recipes | filter:searchText" >
-
-      <div class="col-sm-6 col-md-4">
-        <div class="panel panel-info">
+    <div ng-repeat="recipe in recipes | filter:recipes.searchCategory | filter:recipes.searchText" on-finish-render>
+      <div class="col-sm-4 col-md-3">
+        <div class="panel panel-default recipes" ng-click="gotoDetailView(recipe._id)">
           <div class="panel-heading">
-            <h3 class="panel-title">
-              <div class="recipe-name"><a href="#/recipes/{{recipe._id}}">{{recipe.name}}</a></div>
-                <!--<button class="btn btn-warning pull-right" ng-click="deleteRecipe(recipe._id)">Delete</button>-->
-                <div class="" ng-repeat="category in recipe.category">
-                  <div class="label label-primary pull-right">{{category}}</div>
-                </div>
+            <h3 class="panel-title">{{recipe.name}}</h3>
+
+            <!--<div class="" ng-repeat="category in recipe.category">-->
+            <!--<div class="label label-primary pull-right">{{category}}</div>-->
+            <!--</div>-->
             </h3>
           </div>
           <div class="panel-body">
-            <div class="col-xs-6">
-              <img class="img-responsive" ng-src="{{recipe.image}}">
-            </div>
-            <div class="col-xs-6">
-              <div ng-bind-html="recipe.description" class="description">
+            <!--<div class="col-xs-6">-->
 
-                <h2>{{recipe._id}}</h2>
-              </div>
-            </div>
+            <img class="img-responsive" ng-src="{{recipe.image}}">
+
+            <!--<div class="img-text" ng-bind-html="recipe.description"></div>-->
+
           </div>
+          <!--<div class="col-xs-6">-->
+          <!--<div ng-bind-html="recipe.description" class="description">-->
+
+          <!--<h2>{{recipe._id}}</h2>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
     </div>

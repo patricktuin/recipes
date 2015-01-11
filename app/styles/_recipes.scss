@@ -1,13 +1,11 @@
 .panel {
+  border:none;
+  .panel-heading{
+    border:none;
+  }
   .panel-title {
-    a {
-      text-decoration: none;
-      color: $color4;
-    }
-    a:hover{
-      color:$color3;
-      text-shadow: 0 0 2px $color3;
-    }
+    text-decoration: none;
+    color: $color2;
   }
 
   .label {
@@ -17,3 +15,57 @@
 
   }
 }
+
+.top {
+
+  .white-box {
+    background-color: white;
+    margin: -80px 0 0 0;
+    //    padding: 20px;
+    opacity: 1;
+    z-index: 1;
+  }
+  .img-responsive {
+    z-index: 2;
+  }
+}
+
+.test {
+//  border-color: $test !important;
+  cursor: pointer;
+
+  .panel-heading {
+//    background-color: $test !important;
+    .panel-title {
+      color: white !important;
+    }
+
+  }
+  .panel-body {
+    color: white !important;
+    background-color: $test !important;
+
+    p {
+      color: white;
+    }
+    .img-responsive {
+      opacity: 0.4;
+    }
+    .img-text{
+      padding: 5px;
+      margin-top: -100px;
+      text-align: center;
+    }
+
+  }
+
+}
+
+.recipes {
+  .panel-body {
+    padding: 0 !important;
+
+  }
+}
+
+
